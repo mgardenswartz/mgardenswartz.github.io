@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['8_0',['PLL_N                                  | 8',['../system__stm32l4xx_8c.html#autotoc_md8',1,'']]]
+  ['update_5fmotor_0',['update_motor',['../class_remote_control_control.html#a5d159f0ad0987d0af758b469e08260b5',1,'RemoteControlControl']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exti15_5f10_5firqhandler_0',['EXTI15_10_IRQHandler',['../stm32l4xx__it_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9',1,'stm32l4xx_it.c']]]
+  ['tb6612fng_5fmotor_0',['TB6612FNG_Motor',['../class_t_b6612_f_n_g___motor.html#a0e7c6ab285e63fd8793fb21388b1fb42',1,'TB6612FNG_Motor']]]
 ];

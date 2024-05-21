@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['4000000_0',['4000000',['../system__stm32l4xx_8c.html#autotoc_md3',1,'HCLK(Hz)                               | 4000000'],['../system__stm32l4xx_8c.html#autotoc_md2',1,'SYSCLK(Hz)                             | 4000000']]]
+  ['start_0',['start',['../class_t_b6612_f_n_g___motor.html#a9a7e08366c143ae5441380a7cf2324d6',1,'TB6612FNG_Motor']]],
+  ['stop_1',['stop',['../class_t_b6612_f_n_g___motor.html#a8a3af3f5d9b4df8366cfca73e8c4643e',1,'TB6612FNG_Motor']]]
 ];

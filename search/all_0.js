@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bill_20of_20materials_0',['Bill of Materials',['../hardware_page.html#hardware_components',1,'']]]
+  ['belt_20documentation_0',['Color Sorting Conveyor Belt Documentation',['../index.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mainpage_2ec_0',['mainpage.c',['../mainpage_8c.html',1,'']]],
-  ['motorcontrol_2ecpp_1',['MotorControl.cpp',['../_motor_control_8cpp.html',1,'']]]
+  ['pololuencoder_2ecpp_0',['PololuEncoder.cpp',['../_pololu_encoder_8cpp.html',1,'']]],
+  ['pololuservo_2ecpp_1',['PololuServo.cpp',['../_pololu_servo_8cpp.html',1,'']]]
 ];

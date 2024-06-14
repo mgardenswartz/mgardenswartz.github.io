@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: MAIN PAGE</title>
+<title>Color Sorting Conveyor: Color Sorting Conveyor Belt Documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Color Sorting Conveyor
    </div>
   </td>
  </tr>
@@ -72,70 +72,67 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">MAIN PAGE </div></div>
+  <div class="headertitle"><div class="title">Color Sorting Conveyor Belt Documentation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="goals"></a>
-Goals</h1>
-<ul>
-<li>Write drivers over I2C in C for the VL53L0X Time of Flight sensor and a 6-channel color sensor</li>
-<li>Use SolidWorks to CAD the external components</li>
-<li>Use Fusion 360 to draw the hardware schematics and design a custom PCB</li>
-<li>Use CubeIDE to code in C/C++ and understand the different functions of each hardware pin.</li>
-</ul>
-<h1><a class="anchor" id="req"></a>
-Requirements</h1>
-<p>This project's requirements are provided by Professor Charlie Revfrem.</p>
-<h2><a class="anchor" id="electronics_req"></a>
-The Electronics Requirements:</h2>
-<ul>
-<li>A custom PCB designed around an STM32F411 MCU (or similar) programmed in either C, C++ (or Rust, with permission).</li>
-<li>Two or more actuators, such as motors, driving the machine, actuated by suitable electronics, such as motor drivers.</li>
-<li>Two or more unique sensors.</li>
-<li>Some sort of closed-loop control loop or similarly complex algorithm.</li>
-<li>A wireless controller allowing you to command the bot hands-free or to be used as a wireless e-stop. The controller and receiver will be provided to students for use during ME 507.</li>
-</ul>
-<h2><a class="anchor" id="manufacturing_req"></a>
-The Manufacturing Requirements:</h2>
-<ul>
-<li>3D Printing: All custom non-flat parts should likely be manufactured using FDM 3D printing.</li>
-<li>PCB Fabrication: Flat parts can be made to order out of PCB material (fiberglass) along with the PCB controlling your robot. This option provides high precision and rigidity.</li>
-<li>Laser-cutting: Flat parts can be made quickly and accurately on the laser cutter if the parts are of a suitable material; many materials are not safe to cut with a laser.</li>
-<li>Water-jetting: Flat parts not suitable for the laser cutter can be made accurately and quickly using the water-jet.</li>
-</ul>
-<h2><a class="anchor" id="safety_req"></a>
-The Safety Requirements:</h2>
-<ul>
-<li>If you use a battery, you need to communicate with your instructor before plugging it in or charging it in the lab.</li>
-<li>Your robot must have an emergency stop feature that can be triggered by the provided radio transmitter. For example, releasing the trigger on the transmitter can act as a “dead man’s switch”. The emergency stop must also activate if communication is lost with the wireless controller.</li>
-<li>You may also want to include a way to safely grab your robot if it is mobile in nature, just in case your robot gains sentience and goes after one of the operators.</li>
-<li>Your robot may not injure a human being or, through inaction, allow a human being to come to harm.</li>
-<li>Your robot must obey the orders given it by human beings except where such orders would conflict with the First Law.</li>
-<li>Your robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.</li>
-</ul>
-<h1><a class="anchor" id="hardware"></a>
-Hardware</h1>
-<ul>
-<li>Conveyor Belt</li>
-<li>6-Channel Color Sensor</li>
-<li>VL53L0X Time of Flight Sensor</li>
-<li>STM32F411 MCU</li>
-<li>Custom PCB</li>
-<li>DumboRC remote for E-STOP</li>
-</ul>
-<h1><a class="anchor" id="software"></a>
-Software</h1>
-<ul>
-<li>C++ classes</li>
-<li>I2C drivers</li>
-<li>GPIO drivers</li>
-<li>Timer input capture drivers</li>
-</ul>
+<div class="textblock"><h1><a class="anchor" id="Introduction"></a>
+Introduction</h1>
+<p>I have completed my term project for ME 507. I designed a conveyor belt that sorts blue and red cubes by color. This involved first identifying the required hardware, like motors and servos, then designing a custom PCB around that hardware. Then, a scale model of a real conveyor belt was created. Around 2 inches wide and 9 inches long, it is perfect for the 1.5-inch cubes I chose. All mechanical elements including the cubes, conveyor belt parts (except for the belt), frames for sensors, and so on were 3D-printed. The final design also implements an emergency stop feature with an RC controller trigger.</p>
+<h1><a class="anchor" id="Mechanical"></a>
+Design</h1>
+<p>Because of the small scale of the project, a custom conveyor belt had to be designed in SolidWorks and printed out of PLA on Prusa Mini printer. Only two pieces were too big for the Prusa Mini. The final design is shown below in Figure 1.</p>
+<p><img src="images/1.png" alt="images" class="inline"/> <img src="images/2.png" alt="images" class="inline"/> Figure 1. Color-Sorting Conveyor Belt</p>
+<p>The design includes six main components.</p>
+<ol type="1">
+<li>A wide stand holds a 20Dx46L mm 12V Pololu gearmotor. This motor has a 448.3:1 gear ratio to overcome the high friction in the belt system and to maintain a low belt speed. This high ratio was also important to minimize the size of the motor. In retrospect, it was a little undersized but worked well for the scale in the end. An attached 20 CPR encoder on the shaft before the gearbox allows for closed-loop control and tracking the linear position of the conveyor belt.</li>
+<li>A mount holds the custom-designed PCB with 4 M3 screws.</li>
+<li>A tall stand holds the VL53L0X Pololu time-of-flight sensor. This sensor reads objects up to 200 cm away with a 1-mm resolution. The purpose of this sensor is to take the burden of identifying the presence of a block on the conveyor away from the color sensor. That way, the color sensor can be read when the block is at an ideal location in view of the color sensor. Once the leading edge of a block is identified, the code I wrote tracks it until the color is read.</li>
+<li>A small piece holds the RGB color sensor at an ideal distance to the side of the block. Unlike the time-of-flight sensor which has an ideal operating range of 3 cm to 200 cm, the color sensor just has a field of view with no recommended distance. Closer (around 1-2 cm) turned out to be better, but if it were too close, the lack of ambient light would make the color reading inaccurate.</li>
+<li>A frame with free-spinning rollers carries the conveyor belt itself, a 0.06-inch-thick belt from McMaster-Carr. Tension is kept with duct tape. The belt is not sewn.</li>
+<li>A tilting platform at the end of the conveyor belt makes blocks falling out the end of the conveyor belt go to the left or the right, depending on the color the sensor read. The sensor is a FEETECH FS90-FB Micro Servo from Pololu with a maximum torque of 1.5 kilogram-force-centimeters at 6 V.</li>
+</ol>
+<p>A combined bill of materials for both electrical components and mechanical components is listed below in Table 1. Note that this does not include the PLA material required to print all the parts in the conveyor belt frame and sensor mounts from Figure 1.</p>
+<p>@ section Video Demonstration A video demonstration of the conveyor belt in action can be found at <a href="https://youtu.be/VXA8O6Vz5jg">https://youtu.be/VXA8O6Vz5jg</a>.</p>
+<p>@ section Electrical Design The custom PCB has several features important to operating the conveyor belt and color-identifying mechanisms. First, an AC adapter provided by the ME 507 Lab was chosen to power the design. This way, the downsides of batteries are avoided and a regulated 12 V source with a maximum load of 5 A feeds into the board. The 12 V line powers the motor driver for the gearmotor. This line is then stepped down to 6 V. I used Webench to design this portion of the power circuit, shown below in Figure 2. <img src="images/3.png" alt="images" class="inline"/> Figure 2. Webench circuit to step 12 V at 5A to 6 V at 5 A.</p>
+<p>The result chosen converts 12 V at 5 A to 6 V at up to 5 A. About 200 mV of ripple was measured on this line, but thankfully this did not interfere with any of the peripherals it drove. The 6 V line powered two devices: the DumboRC receiver (lent to me for the quarter for developing the emergency stop feature on the conveyor belt) and the servo. From here, the 6 V line is then stepped down to 3.3 V with a fixed low-dropout regulator. This power is then routed to every 3.3 V pin on the chosen microcontroller’s footprint. I added decoupling capacitor on each 3.3V on the MCU. I chose a STM32F411CEU6 for ease of porting from the Black Pill development board. This MCU also had more than the necessary features for the project: enough timer modules, I2C buses, and RAM and flash memory for the potentially complex codebase of tracking blocks and running all sensors in C++.</p>
+<p>All headers were 0.1” male headers. Headers were created for two I2C devices on I2C Bus 1. More were created for up to two servos, each with an extra pin for optional positional feedback. Closed loop control could have been implemented on the servo but for time constraints, it was deemed unnecessary. Another set of 0.1” headers was created for the DC motor driver’s output and two-channel encoder. I also added a 4-pin debug header that was identical to the one found on the Black Pill. Extra GPIO pins were routed to a 2-by-5 header. Only one pin on the MCU was unused. This left many extra pins in case I soldered any incorrectly or damaged part of my MCU.</p>
+<p>I added an LED on the 3.3 V line to confirm that my power circuit was working properly when plugged in. Another LED was added to a spare GPIO pin on my MCU. A user button was added on an adjacent pin capable of generating EXTI callbacks. A USB-C port was added. Unfortunately, it didn’t completely function as expected because each SBUS pin required a 5.1 kiloohm resistor, but I only added one and shorted SBUS1 to SBUS2. It wasn’t worth bodging. This meant the USB port could still be used for code flashing but the blue LED I put on the 5 V line that USB-C usually provides doesn’t work. Usually, the device on the other end of the USB-C cable must read two 5.1 kiloohm resistors to successfully output the 5 V on SBUS. The only other feature on my board that did not work the first time was the crystal I added. While it was supposed to produce a 25 MHz signal, the 560 kHz signal I measured with my lab instructor’s supervision confirmed that my crystal was not working as expected. So, I used the high-speed internal oscillator (HSI) for all timing instead. Although it was less accurate than a HSE, I had no issues with my code.</p>
+<p>I followed recommendations for decoupling capacitors meticulously on my board. I accidentally overdesigned the inductor on the output of my switching voltage regulator, though (12 V  6 V). It’s rather large because it can handle up to 11.8 A. This was mostly just a lazy job of searching for components on DigiKey’s search tool, something which usually gave me high-quality results. For instance, it was very useful in finding an LDO which had a simple “Typical Application” diagram.</p>
+<p>In routing my schematic, I was careful to pay attention to trace width. I made liberal use of polygon pours for ground and power lines. I made sure to disable thermal reliefs for any trace I knew might have to handle a high current. I designed all traces with the maximum current in mind. For servos and motors, this meant I used the stall current. This turned out to be unnecessary for my project. I later learned that designing a circuit for high current and never operating at that condition can cause other problems. The final board design is shown below in Figure 3.</p>
+<p><img src="images/4.png" alt="images" class="inline"/> <img src="images/5.png" alt="images" class="inline"/> Figure 3. My custom PCB, ECAD routing (top) and real life (bottom).</p>
+<p>In assembling my PCB, I had some trouble using the stencil I bought to apply solder paste. I reapplied it 6 times and eventually settled on having a little bit too little solder paste than too much. I then used tweezers to scrape any bridged pads and placed all my SMD components on the hot plate. After a few minutes, almost all my pins had connected to their associated pads well. Solder pins—mostly on the MCU—needing touching up. Jack Miller helped me touch this up with a fine tip on his soldering iron. When I plugged it in the first time, all pins were connected well, and no shorts were detected. I was able to immediately flash and debug code to my MCU. This was a pleasant surprise. I was very worried about the amount of bodging I would have to do even though both Dr. Wade and Charlie Refvem returned my ECAD with minimal comments.</p>
+<p>An I/O List is given below in Table 3. Note I forgot to add silkscreen description for all my pins, so the actual ECAD routing would need to be referenced to wire this PCB up for the first time. That’s something I learned for next time. Table 3. An I/O List for the custom PCB.</p>
+<h1><a class="anchor" id="Software"></a>
+Implementation</h1>
+<p>The full codebase should now be posted online on my GitHub at mgardenswartz.github.io. Most code was written from scratch in C++. I found the object-oriented patterns of classes and methods much more accessible than pseudo-OOP code that C structs could provide. The only API used was a provided STM32 for the time-of-flight sensor. The color sensor for our Although, it was made with C in mind, so I had to add a few lines because the original authors clearly never tested it in a C++ STM32CubeIDE project!</p>
+<p>The basic algorithm works like this:</p><ol type="1">
+<li>The user depresses the trigger on the remote control, which acts as a dead man’s switch.</li>
+<li>Now that the emergency stop feature has been disabled, a setpoint of 15 RPM is fed to the motor controller. If the user ever lets go of the trigger, the conveyor belt stops and the whole program pauses.</li>
+<li>The conveyor belt reaches a steady state speed in a fraction of a second.</li>
+<li>A block of unknown color is placed in the center of the conveyor belt, its edges parallel to the direction of the conveyor.</li>
+<li>A time-of-flight detects the leading edge of the block. A C++ object is created to represent the block.</li>
+<li>The block’s position is continually tracked based on the no-slip assumption. That is, it is assumed the leading edge of the block travelling concurrently with the conveyor belt.</li>
+<li>When the block’s position is determined to be in an ideal location for the color sensor to read its color, a single color measurement is taken.</li>
+<li>The position of the sorting mechanism at the end of the conveyor, controlled by a servo, is set based on the color measurement.</li>
+<li>The C++ object representing the block is destroyed.</li>
+<li>The block continues riding on the conveyor until it falls off the end and is diverted to the right it was red in color and to the left if it was not. For my tests, the other color was blue.</li>
+</ol>
+<p>Several classes were written, including</p>
+<p>• A DC Motor driver (TB6612FNG), • An Pololu two-channel motor encoder driver, • A PID motor controller, • A RC channel driver, • A RC control driver that links a RC channel object to a motor controller object, • A conveyor belt object (with an origin at the encoder origin), • A colored Block object (with an origin relative when the time-of-flight first sees a block), and • A color sensor driver (ported from an Arduino library to the STM32).</p>
+<p>I considered using FreeRTOS because our code requires many tasks will different but somewhat important timing. The most important timing was the control algorithm on the conveyor belt’s motor. I did not do this because I ran out of time and realized that all my C++ driver may not work with FreeRTOS, which is written in C. A student and friend named Jack Miller suggested adding a C++ wrapper, but I did not explore this, either.</p>
+<p>Instead, the program runs as a bare-metal finite state machine with millisecond precision dictated by the HAL_GetTick() command. Thankfully, none of the tasks needed to be designed with more than one state, so I basically made a task scheduler.</p>
+<p>Table 4. Summary of tasks for final code.</p>
+<h1><a class="anchor" id="Conclusion"></a>
+Conclusion</h1>
+<p>The color sorting conveyor belt project works almost entirely as expected. It is shown below in Figure 4. <img src="images/6.png" alt="images" class="inline"/> Figure 4. The final product.</p>
+<p>It misreads block when they are placed too close to each other on the conveyor, but this is a product of simple programming, not a physical limitation of the hardware. Sometimes low lighting is an issue, but a smartphone flashlight shined near the color sensor fixes that problem. The color sensor also probably needs thorough calibration. In the interest of getting a working prototype, these extra features were skipped. I’ve cataloged all the changes I’d want to add to my code on GitHub, but dealing with multiple blocks in quick succession would be the next objective. Thankfully, I was very successful in the most important aspect of this class: creating a custom PCB. I would do very little different in that respect. However, four areas of improvement come to mind. Measuring and mitigating ripple on the 6 V rail would be prudent even if didn’t affect the devices that drew power from that line. Second, it would have been nice to use a crystal as my HSE if I had correctly calculated the required capacitances. I chose 3 pF for each, and that appears to have been wrong according to what I read on the oscilloscope. Third, I would have fixed the USB-C SBUS resistors. I could have bodged that. Last, I should have impedance-matched my USB traces because I found out I was operating outside of the recommended range by simply copying the Black Pill schematic without understanding how high-speed connections like USB traces need to be designed.</p>
+<p>I had a very fun time this quarter and learned a lot about PCB design, C++ programming, and the I2C protocol. Please note that I had serious issues sharing work with my partner, which is why I have written this whole report alone and removed his name. I asked him to start on it on June 4, 2024, but he never did. I have sent another memo detailing my partner’s unsatisfactory work ethic. Please read it for context.</p>
+<p>I would like to thank my professors, Charlie Refvem and Dr. Eric Espinoza-Wade, for an excellent quarter and for helping me finish my degree on a high note.</p>
 <h1><a class="anchor" id="repository"></a>
-REPOSITORY REFERENCE</h1>
-<p>All code that will be referenced in this portfolio relate to the project is accessible through <a href="https://github.com/mgardenswartz/color_sorter_conveyor">https://github.com/mgardenswartz/color_sorter_conveyor</a>.</p>
+Codebase</h1>
+<p>All code that will be referenced in this portfolio relate to the project is accessible through <a href="https://github.com/mgardenswartz/color_sorter_conveyor">https://github.com/mgardenswartz/color_sorter_conveyor</a>. The code tested and used for the demonstration on June 12, 2024 was test-19, not final-code.</p>
 <h1><a class="anchor" id="info"></a>
-CONTACT INFO</h1>
+Contact Information</h1>
 <pre>   
 <b>Author:</b>         Max Gardenswartz
 
@@ -147,7 +144,7 @@ CONTACT INFO</h1>
 
 <b>Major:</b>          Mechanical Engineer at Cal Poly San Luis Obispo
 
-<b>Date:</b>           May 21, 2024
+<b>Date:</b>           June 14, 2024
 </pre><p><br  />
  </p>
 </div></div><!-- PageDoc -->

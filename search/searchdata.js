@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "bcdefghimoprst",
-  1: "chmprst",
-  2: "dhmps"
+  0: "bcdimprst",
+  1: "cmprt",
+  2: "bcds"
 };
 
 var indexSectionNames =

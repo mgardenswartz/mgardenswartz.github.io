@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['glove_20pcb_0',['Controller Glove PCB',['../hardware_page.html#autotoc_md1',1,'']]],
-  ['goals_1',['Goals',['../index.html#goals',1,'']]]
+  ['pololuencoder_2ecpp_0',['PololuEncoder.cpp',['../_pololu_encoder_8cpp.html',1,'']]],
+  ['pololuservo_2ecpp_1',['PololuServo.cpp',['../_pololu_servo_8cpp.html',1,'']]]
 ];

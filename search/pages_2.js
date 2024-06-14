@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_20page_0',['MAIN PAGE',['../index.html',1,'']]]
+  ['documentation_0',['Color Sorting Conveyor Belt Documentation',['../index.html',1,'']]]
 ];

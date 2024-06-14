@@ -1,30 +1,18 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdehimnprstuv",
-  1: "cmprst",
-  2: "_bdehimnpstu",
-  3: "adehimrstv",
-  4: "cmr",
-  5: "cs"
+  0: "cmprst",
+  1: "cmprst"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "variables",
-  4: "defines",
-  5: "groups"
+  1: "files"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Files",
-  2: "Functions",
-  3: "Variables",
-  4: "Macros",
-  5: "Modules"
+  1: "Files"
 };
 

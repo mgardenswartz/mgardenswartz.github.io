@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tb6612fng_5fmotor_2ecpp_0',['TB6612FNG_Motor.cpp',['../_t_b6612_f_n_g___motor_8cpp.html',1,'']]]
+  ['rcchannel_2ecpp_0',['RCChannel.cpp',['../_r_c_channel_8cpp.html',1,'']]],
+  ['remotecontrolcontrol_2ecpp_1',['RemoteControlControl.cpp',['../_remote_control_control_8cpp.html',1,'']]]
 ];

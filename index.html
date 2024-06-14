@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>My Project: MAIN PAGE</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,10 +71,86 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">My Project Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">MAIN PAGE </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="goals"></a>
+Goals</h1>
+<ul>
+<li>Write drivers over I2C in C for the VL53L0X Time of Flight sensor and a 6-channel color sensor</li>
+<li>Use SolidWorks to CAD the external components</li>
+<li>Use Fusion 360 to draw the hardware schematics and design a custom PCB</li>
+<li>Use CubeIDE to code in C/C++ and understand the different functions of each hardware pin.</li>
+</ul>
+<h1><a class="anchor" id="req"></a>
+Requirements</h1>
+<p>This project's requirements are provided by Professor Charlie Revfrem.</p>
+<h2><a class="anchor" id="electronics_req"></a>
+The Electronics Requirements:</h2>
+<ul>
+<li>A custom PCB designed around an STM32F411 MCU (or similar) programmed in either C, C++ (or Rust, with permission).</li>
+<li>Two or more actuators, such as motors, driving the machine, actuated by suitable electronics, such as motor drivers.</li>
+<li>Two or more unique sensors.</li>
+<li>Some sort of closed-loop control loop or similarly complex algorithm.</li>
+<li>A wireless controller allowing you to command the bot hands-free or to be used as a wireless e-stop. The controller and receiver will be provided to students for use during ME 507.</li>
+</ul>
+<h2><a class="anchor" id="manufacturing_req"></a>
+The Manufacturing Requirements:</h2>
+<ul>
+<li>3D Printing: All custom non-flat parts should likely be manufactured using FDM 3D printing.</li>
+<li>PCB Fabrication: Flat parts can be made to order out of PCB material (fiberglass) along with the PCB controlling your robot. This option provides high precision and rigidity.</li>
+<li>Laser-cutting: Flat parts can be made quickly and accurately on the laser cutter if the parts are of a suitable material; many materials are not safe to cut with a laser.</li>
+<li>Water-jetting: Flat parts not suitable for the laser cutter can be made accurately and quickly using the water-jet.</li>
+</ul>
+<h2><a class="anchor" id="safety_req"></a>
+The Safety Requirements:</h2>
+<ul>
+<li>If you use a battery, you need to communicate with your instructor before plugging it in or charging it in the lab.</li>
+<li>Your robot must have an emergency stop feature that can be triggered by the provided radio transmitter. For example, releasing the trigger on the transmitter can act as a “dead man’s switch”. The emergency stop must also activate if communication is lost with the wireless controller.</li>
+<li>You may also want to include a way to safely grab your robot if it is mobile in nature, just in case your robot gains sentience and goes after one of the operators.</li>
+<li>Your robot may not injure a human being or, through inaction, allow a human being to come to harm.</li>
+<li>Your robot must obey the orders given it by human beings except where such orders would conflict with the First Law.</li>
+<li>Your robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.</li>
+</ul>
+<h1><a class="anchor" id="hardware"></a>
+Hardware</h1>
+<ul>
+<li>Conveyor Belt</li>
+<li>6-Channel Color Sensor</li>
+<li>VL53L0X Time of Flight Sensor</li>
+<li>STM32F411 MCU</li>
+<li>Custom PCB</li>
+<li>DumboRC remote for E-STOP</li>
+</ul>
+<h1><a class="anchor" id="software"></a>
+Software</h1>
+<ul>
+<li>C++ classes</li>
+<li>I2C drivers</li>
+<li>GPIO drivers</li>
+<li>Timer input capture drivers</li>
+</ul>
+<h1><a class="anchor" id="repository"></a>
+REPOSITORY REFERENCE</h1>
+<p>All code that will be referenced in this portfolio relate to the project is accessible through <a href="https://github.com/mgardenswartz/color_sorter_conveyor">https://github.com/mgardenswartz/color_sorter_conveyor</a>.</p>
+<h1><a class="anchor" id="info"></a>
+CONTACT INFO</h1>
+<pre>   
+<b>Author:</b>         Max Gardenswartz
+
+<b>Email:</b>          <a href="#" onclick="location.href='mai'+'lto:'+'mga'+'rd'+'ens'+'@c'+'alp'+'ol'+'y.e'+'du'; return false;">mgard<span class="obfuscator">.nosp@m.</span>ens@<span class="obfuscator">.nosp@m.</span>calpo<span class="obfuscator">.nosp@m.</span>ly.e<span class="obfuscator">.nosp@m.</span>du</a>
+
+<b>LinkedIn:</b>       <a href="https://www.linkedin.com/in/max-gardenswartz/">https://www.linkedin.com/in/max-gardenswartz/</a>
+
+<b>Phone Number:</b>   +1 (208) 410-9066 
+
+<b>Major:</b>          Mechanical Engineer at Cal Poly San Luis Obispo
+
+<b>Date:</b>           May 21, 2024
+</pre><p><br  />
+ </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->
 <!-- start footer part -->
